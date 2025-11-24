@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Tic Tac Toe</h1>
+        <p>Challenge a friend or play against the computer.</p>
+      </header>
+
+      <section class="controls">
+        <div class="field">
+          <label for="mode-select">Mode</label>
+          <select id="mode-select">
+            <option value="pvp">Friend vs Friend</option>
+            <option value="cpu">You vs Computer</option>
+            <option value="online">Online Play (beta)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="player-x-name">Player X</label>
+          <input id="player-x-name" type="text" value="Player 1" />
+        </div>
+        <div class="field friend-only">
+          <label for="player-o-name">Player O</label>
+          <input id="player-o-name" type="text" value="Player 2" />
+        </div>
+        <div class="field online-only" aria-live="polite">
+          <label>Online room</label>
+          <div class="online-actions">
+            <button id="create-room-btn" type="button">Create room</button>
+            <span id="room-id-display" class="room-pill">-</span>
+            <button id="copy-room-btn" type="button" title="Copy room ID">
+              Copy
+            </button>
+          </div>
+          <div class="online-actions">
+            <input
+              id="room-id-input"
+              type="text"
+              placeholder="Enter friend's room ID"
+            />
+            <button id="join-room-btn" type="button">Join room</button>
+          </div>
+          <small id="online-status">Switch to Online mode to start.</small>
+        </div>
+        <button id="reset-btn" type="button">Reset Game</button>
+      </section>
+
+      <section class="status">
+        <div>
+          <p id="turn-indicator">Player X starts</p>
+          <p id="result-indicator"></p>
+        </div>
+        <div class="scoreboard">
+          <div>
+            <span>X wins</span>
+            <strong id="score-x">0</strong>
+          </div>
+          <div>
+            <span>O wins</span>
+            <strong id="score-o">0</strong>
+          </div>
+          <div>
+            <span>Draws</span>
+            <strong id="score-draws">0</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="board" aria-label="Tic Tac Toe board">
+        <button data-index="0" aria-label="Position 1"></button>
+        <button data-index="1" aria-label="Position 2"></button>
+        <button data-index="2" aria-label="Position 3"></button>
+        <button data-index="3" aria-label="Position 4"></button>
+        <button data-index="4" aria-label="Position 5"></button>
+        <button data-index="5" aria-label="Position 6"></button>
+        <button data-index="6" aria-label="Position 7"></button>
+        <button data-index="7" aria-label="Position 8"></button>
+        <button data-index="8" aria-label="Position 9"></button>
+      </section>
+
+      <div id="result-banner" aria-live="assertive" role="status">
+        <p id="result-banner-text"></p>
+      </div>
+
+      <section class="help">
+        <h2>How to play</h2>
+        <ul>
+          <li>Select your mode: battle a friend or the built-in computer.</li>
+          <li>
+            Online mode lets you create a room ID to share with a friend. The
+            creator plays X, the guest plays O.
+          </li>
+          <li>Click any square to place your mark. X always goes first.</li>
+          <li>The first player with three marks in a row wins the round.</li>
+          <li>Use Reset Game anytime to start over and keep the scores.</li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+
